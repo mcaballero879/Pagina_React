@@ -1,12 +1,13 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route, Link, useNavigate } from 'react-router-dom';
+import LoginAPP from './assets/components/Login';
+import Header from './assets/Header';
+import Footer from './assets/Footer';
+import Principal from './Principal';
+import PokeAPI from './assets/components/PokeAPI';
 
 function Home() {
   return <h1>Página de inicio</h1>;
-}
-
-function Comienzo() {
-  return <h1>Página de comienzo</h1>;
 }
 
 function About() {
@@ -15,18 +16,21 @@ function About() {
 
 function App() {
   return (
-    <BrowserRouter>
-      <nav>
-        <Link to="/">Inicio</Link>
-        <Link to="/about">Acerca de</Link>
-        
-      </nav>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-      </Routes>
-    </BrowserRouter>
-  );
+    <>
+      <BrowserRouter>
+        <Header/>
+        <Routes>
+          <Route path='/' element={<LoginAPP/>} ></Route>
+          <Route path='/PokeAPI' element={<PokeAPI/>} ></Route>
+        </Routes>
+        <Footer/>
+      </BrowserRouter>
+    
+    </>
+   
+  )
 }
+
+
 
 export default App
